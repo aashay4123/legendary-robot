@@ -1,0 +1,33 @@
+Alcohol display on Serial monitor:
+
+1. Read the values obtained at pin A0 of the NodeMCU board.
+2. Take the average of every 100 values taken as a reading.
+3. The reading is then divided by 1024 and multiplied by 
+scaling factor (i.e . 5). This is the received voltage reading.
+4.The value of the sensor resistance is then obtained through
+ the voltage divider circuit consisting of VCC and the voltage reading.
+5.Divide the obtained value of sensor resistance with R0. 
+Here R0 is the value of resistance obtained by dividing the
+ value of the sensor resistance as measured in clear air by 60.
+ Here 60 is chosen as it is observed from the sensitivity 
+characteristics graph as shown in the MQ3 datasheet. 
+It can be observed that the ratio of Rs/R0 is 60 for clean air.
+ Refer datasheet of MQ-3 for the graph https://www.sparkfun.com/datasheets/Sensors/MQ-3.pdf
+6.Thus we obtain the ratio Rs/R0 for the specific alcohol/ gas
+ in the surrounding. This ratio is equivalent to the corresponding
+ Y-axis value. Thus through the graph of fig, we can obtain the 
+corresponding concentration in mg/L.
+7.Thus we know the y co-ordinate. We have to calculate the 
+x co-ordinate. However as we can observe from fig, the graph 
+is not linear. We cannot use regular straight line equation.
+8. Hence we obtain the best fit line joining most points of 
+the datasheet graph using Linear Regression. Here, we have performed it for Ethanol.
+9.10 points were taken on the graph. The x co-ordinates are 
+stored in an array while the corresponding  y co-ordinates are stored in another array.
+10.Using Linear Regression gives the equation as x = (y - a)/b.
+11.The value of coefficient a and b is calculated using the 
+Linear regression formulae. 
+Refer: http://www.statisticshowto.com/probability-and-statistics/regression-analysis/find-a-linear-regression-equation/.
+12.Then using the equation x = (y-a)/b, the corresponding value 
+of x i.e. the concentration of the alcohol/gas in mg/L is obtained.
+13.The value is displayed on the Serial monitor.

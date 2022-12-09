@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+
+<html>
+
+    <head>
+
+        <title>Bolt IoT Platform</title>
+
+        <script type="text/javascript" src="https://cloud.boltiot.com/static/js/boltCommands.js"></script>
+
+        <script>
+        setKey('{{ApiKey}}','{{Name}}');
+
+        var previous_value = -1;
+        function update_value() {
+        	var pwm_value = document.getElementById('pwm').value;
+        	if (previous_value != pwm_value) {
+        		analogWrite(0,pwm_value);
+        		document.getElementById('pwm_display').innerHTML = pwm_value;
+        	}
+        	previous_value = pwm_value;
+        }
+        setInterval(update_value,500);
+        </script>
+    </head>
+    <body>
+        Buzzer intensity :
+       <input type="range" id="pwm" min="0" max="255" value="0">
+       <div id="pwm_display">0</div>
+    </body>
+
+</html>

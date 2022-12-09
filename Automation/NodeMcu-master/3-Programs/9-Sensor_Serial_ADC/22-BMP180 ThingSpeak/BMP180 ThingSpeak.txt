@@ -1,0 +1,39 @@
+BMP180 ThingSpeak:
+
+1. Include the ESP8266WiFi library in the program.
+2. Download the specific BMP085 library from the 
+GitHub website - https://github.com/adafruit/Adafruit-BMP085-Library
+
+3. Place the Adafruit_BMP085 library folder your arduino sketch folder/libraries/ folder.
+4. Include the ESP8266 WiFi library into the program. 
+  It would provide the various specific routines which need 
+  to be called for the ESP8266 to access the WiFi.
+5. Enter the Write API key. For the channel created on ThingSpeak, 
+  it provides a write as well as read API key. Store the Write API key 
+  and the server name i.e. api.thingspeak.com into strings.
+6. Also store the WiFi ssid which is being used as well as the password into strings.
+7. Connect with the given ssid. Once connection is established the message is displayed.
+8. In the loop function, the data sensed by the sensor is stored into variables.
+  This forms the client program. Once the connection is established, the sensed data is 
+  sent specifying the fields and with the Write API key.
+9. The sent data may also be displayed if required on the Serial monitor.
+10. Once the connection is established, the graphs are displayed on the channel 
+  in the specified fields and regularly updated as and when data is sent to it.
+11.As and when the condition specified in React is satisfied, the message is sent to twitter account.   
+
+Thingspeak Channel creation:
+
+    1.Create an account on Thingspeak
+    2. Create a new channel 
+    3. Enter the required fields whose values are to be plotted(here pressure altitude and      temperature)
+    4. Other fields can be entered if required.
+    5. Save the settings.
+
+Creating a React:
+    1. On the ThingSpeak website, go to the Apps section.
+    2. Create a new React.
+    3. Enter the name and condition type (i.e. what is the data type of the condition like numeric, string etc.)
+    4. Set the condition for the particular field.
+    5. Choose the desired React action to be performed (here ThingTweet).
+    6. If using the ThingTweet action, link the Twitter account and the message which is to be tweeted.
+    7. Choose the option as to when the action is to run. 
