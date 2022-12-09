@@ -1,0 +1,6 @@
+consumer_key = 'j489DTMfw8GoegV96qsrvtFXC'
+consumer_secret = 'vxbvtHhoZzlD4EJeHNVpL1THDuPyZsMkgMPM3rGg9PkBfoEKcM'
+access_token = '1079266091426230272-mLdkNKLqsa4rsFjiBU5F12BYrfHLHh'
+access_secret ='izBLCprKORQSPKWP0pX0d6ovWlWJzZMBaEeMVvYg1nAHV'
+API_KEY = '92c94f06-a681-4ef4-9bff-f4c024fba905'
+DEVICE_ID = 'BOLT6094955'
